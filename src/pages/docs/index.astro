@@ -1,0 +1,32 @@
+---
+import DocsPage from '../../layouts/DocsPage.astro';
+---
+
+<DocsPage title="Docs - Synaptik Core" heading="Documentation">
+  <p class="text-lg text-gray-700 max-w-2xl mb-8">
+    Guides, API reference, and tutorials for building with Synaptik Core.
+  </p>
+
+  <section class="not-prose grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <a href="/docs/get-started" class="block h-full min-h-40 p-6 rounded-lg border border-gray-300 hover:bg-white/60 transition-colors">
+      <h2 class="text-2xl font-semibold mb-2">Get Started</h2>
+      <p class="text-gray-700">Installation and quickstart.</p>
+    </a>
+    <a href="/docs/python" class="block h-full min-h-40 p-6 rounded-lg border border-gray-300 hover:bg-white/60 transition-colors">
+      <h2 class="text-2xl font-semibold mb-2">Python Library</h2>
+      <p class="text-gray-700">SDK and usage for Python.</p>
+    </a>
+    <a href="/docs/rust" class="block h-full min-h-40 p-6 rounded-lg border border-gray-300 hover:bg-white/60 transition-colors">
+      <h2 class="text-2xl font-semibold mb-2">Rust Crate</h2>
+      <p class="text-gray-700">Crate features and examples.</p>
+    </a>
+    <a href="/docs/mcp" class="block h-full min-h-40 p-6 rounded-lg border border-gray-300 hover:bg-white/60 transition-colors">
+      <h2 class="text-2xl font-semibold mb-2">MCP</h2>
+      <p class="text-gray-700">Model Context Protocol integration.</p>
+    </a>
+    <a href="/docs/examples" class="block h-full min-h-40 p-6 rounded-lg border border-gray-300 hover:bg-white/60 transition-colors">
+      <h2 class="text-2xl font-semibold mb-2">Examples</h2>
+      <p class="text-gray-700">Runnable examples and templates.</p>
+    </a>
+  </section>
+</DocsPage>

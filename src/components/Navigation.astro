@@ -1,0 +1,40 @@
+---
+interface Props {
+  activePage?: 'docs' | 'blog';
+}
+
+const { activePage } = Astro.props;
+---
+
+<nav class="fixed top-0 left-0 right-0 bg-stone-50/80 backdrop-blur-sm z-50 border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <ul class="flex justify-center gap-8 text-sm">
+      <li>
+        <a 
+          href="/docs" 
+          class={activePage === 'docs' ? 'font-medium' : 'hover:opacity-70'}
+        >
+          Docs
+        </a>
+      </li>
+      <li>
+        <a 
+          href="/blog" 
+          class={activePage === 'blog' ? 'font-medium' : 'hover:opacity-70'}
+        >
+          Blog
+        </a>
+      </li>
+      <li>
+        <a href="https://synaptik-core.dev/research" class="hover:opacity-70">
+          Research Survey
+        </a>
+      </li>
+      <li>
+        <a href="mailto:janayharris@synaptik-core.dev" class="hover:opacity-70">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
