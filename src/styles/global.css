@@ -84,3 +84,46 @@ a {
   outline: 2px solid var(--link-color);
   outline-offset: 2px;
 }
+
+/* View Transitions - Smooth page navigation */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Loading indicator during page transitions */
+html.astro-transitioning {
+  cursor: wait;
+}
+
+html.astro-transitioning::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1d4ed8, transparent);
+  background-size: 200% 100%;
+  animation: loading-bar 1s ease-in-out infinite;
+  z-index: 9999;
+}
+
+@keyframes loading-bar {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Smooth fade for navigation links */
+a {
+  transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+}

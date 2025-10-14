@@ -26,7 +26,11 @@ const { activePage } = Astro.props;
         </a>
       </li>
       <li>
-        <a href="https://synaptik-core.dev/research" class="hover:opacity-70">
+        <a 
+          href="https://synaptik-core.dev/research" 
+          class="hover:opacity-70 external-link"
+          data-external="true"
+        >
           Research Survey
         </a>
       </li>
@@ -38,3 +42,46 @@ const { activePage } = Astro.props;
     </ul>
   </div>
 </nav>
+
+<script>
+  // Handle external link transitions
+  function setupExternalLinks() {
+    const externalLinks = document.querySelectorAll('a[data-external="true"]');
+    
+    externalLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = (e.currentTarget as HTMLAnchorElement).href;
+        
+        // Add fade out effect
+        document.body.style.transition = 'opacity 0.3s ease-out';
+        document.body.style.opacity = '0';
+        
+        // Navigate after animation
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      });
+    });
+  }
+
+  // Run on initial load
+  setupExternalLinks();
+
+  // Re-run after view transitions
+  document.addEventListener('astro:page-load', setupExternalLinks);
+</script>
+
+<style>
+  .external-link {
+    position: relative;
+  }
+
+  .external-link::after {
+    content: '↗';
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-size: 0.75em;
+    opacity: 0.6;
+  }
+</style>
