@@ -5,9 +5,14 @@ import Navigation from '../components/Navigation.astro';
 interface Props {
   title?: string;
   heading?: string;
+  description?: string;
 }
 
-const { title = 'Docs - Synaptik Core', heading = 'Documentation' } = Astro.props as Props;
+const { 
+  title = 'Docs - Synaptik Core', 
+  heading = 'Documentation',
+  description = 'Guides, API reference, and tutorials for building with Synaptik Core - a cognitive runtime for verifiable AI.'
+} = Astro.props as Props;
 
 const pathname = Astro.url.pathname;
 
@@ -20,7 +25,11 @@ const nav = [
 ];
 ---
 
-<Layout title={title}>
+<Layout 
+  title={title}
+  description={description}
+  keywords="Synaptik Core docs, AI documentation, verifiable AI guide, AI API, cognitive runtime tutorial"
+>
 	<Navigation activePage="docs" />
 
 	<!-- Hero Section with Line Pattern Background -->

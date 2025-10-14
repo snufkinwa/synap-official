@@ -1,0 +1,6 @@
+# robots.txt for Synaptik Core
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://synaptik-core.ai/sitemap-index.xml

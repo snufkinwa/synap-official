@@ -15,9 +15,18 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 const title = `${post.data.title} - Synaptik Core`;
 const date = new Date(post.data.pubDate).toLocaleDateString('en-US', { dateStyle: 'long' });
+const description = post.data.description || post.data.title;
+const publishedTime = new Date(post.data.pubDate).toISOString();
 ---
 
-<Layout title={title}>
+<Layout 
+	title={title}
+	description={description}
+	type="article"
+	publishedTime={publishedTime}
+	image={post.data.heroImage || '/synaptik-logo.png'}
+	keywords={post.data.tags?.join(', ') || 'AI, verifiable AI, Synaptik Core'}
+>
 	<Navigation activePage="blog" />
 
 	<!-- Hero Section with Line Pattern Background -->

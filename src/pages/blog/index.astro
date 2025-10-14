@@ -7,7 +7,11 @@ const posts = (await getCollection('blog', (entry) => !entry.data.draft))
   .sort((a, b) => +b.data.pubDate - +a.data.pubDate);
 ---
 
-<Layout title="Blog - Synaptik Core">
+<Layout 
+	title="Blog - Synaptik Core"
+	description="Insights, updates, and thoughts on building verifiable AI systems with persistent memory and enforceable contracts."
+	keywords="AI blog, verifiable AI, AI development, cognitive runtime, AI memory, AI contracts"
+>
 	<Navigation activePage="blog" />
 
 	<!-- Hero Section with Line Pattern Background -->
