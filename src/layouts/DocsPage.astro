@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title?: string;
@@ -91,10 +92,7 @@ const nav = [
 			</div>
 		</main>
 
-		<!-- Footer -->
-		<footer class="relative z-10 py-8 text-center text-sm text-gray-500 border-t border-gray-200">
-			© 2025 Synaptik Core
-		</footer>
+		<Footer />
 	</div>
 </Layout>
 
