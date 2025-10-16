@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/DocsPage.astro
-title: Docs - Synaptik Core
+title: Get Started - Synaptik Core Documentation
 heading: Get Started
+description: Installation, quickstart guide, and core concepts for Synaptik Core.
 ---
 
 ## Coming soon

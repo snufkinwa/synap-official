@@ -10,6 +10,7 @@ interface Props {
 	publishedTime?: string;
 	author?: string;
 	keywords?: string;
+	noindex?: boolean;
 }
 
 const { 
@@ -19,7 +20,8 @@ const {
 	type = 'website',
 	publishedTime,
 	author = 'Synaptik Core',
-	keywords = 'AI, artificial intelligence, verifiable AI, persistent memory, AI contracts, AI transparency, cognitive runtime, AI audit, ethical AI'
+	keywords = 'AI, artificial intelligence, verifiable AI, persistent memory, AI contracts, AI transparency, cognitive runtime, AI audit, ethical AI',
+	noindex = false
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -90,7 +92,8 @@ if (publishedTime && type === 'article') {
 		<meta name="twitter:image" content={imageURL} />
 		
 		<!-- Additional SEO -->
-		<meta name="robots" content="index, follow" />
+		<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+		<meta name="googlebot" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 		<meta name="language" content="English" />
 		<meta name="revisit-after" content="7 days" />
 		

@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/DocsPage.astro
-title: Docs - Synaptik Core
+title: Python Library - Synaptik Core Documentation
 heading: Python Library
+description: Python SDK documentation including installation, quickstart, API reference, and examples for Synaptik Core.
 ---
 
 ## Coming soon

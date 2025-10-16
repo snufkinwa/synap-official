@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/DocsPage.astro
-title: Docs - Synaptik Core
+title: Examples - Synaptik Core Documentation
 heading: Examples
+description: Runnable code examples and templates to help you learn and build with Synaptik Core.
 ---
 
 ## Coming soon

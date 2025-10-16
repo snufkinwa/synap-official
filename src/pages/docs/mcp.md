@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/DocsPage.astro
-title: Docs - Synaptik Core
+title: Model Context Protocol (MCP) - Synaptik Core Documentation
 heading: MCP
+description: Model Context Protocol integration documentation including setup instructions, protocol details, and examples.
 ---
 
 ## Coming soon

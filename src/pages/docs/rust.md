@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/DocsPage.astro
-title: Docs - Synaptik Core
+title: Rust Crate - Synaptik Core Documentation
 heading: Rust Crate
+description: Rust crate documentation covering features, usage, and examples for Synaptik Core.
 ---
 
 ## Coming soon
