@@ -24,8 +24,8 @@ Synaptik Core applies this same biological wisdom to AI systems so they can reme
 
 ## How Feedback Keeps Thought in Check
 
-![Human Working Memory](../../assets/graphfeedbackloop.jpg)
-*Frontal cortex focus, hippocampal gating, and microglial pruning—the biological rhythm Synaptik Core reflects.*
+![Synaptik Core Feedback Loop](../../assets/graphfeedbackloop.jpg)
+*A continuous feedback loop monitors system state and adjusts memory to maintain cognitive stability.*
 
 Like a conductor keeping an orchestra in time, Synaptik Core listens for drift and brings every signal back into tune.
 
@@ -37,6 +37,8 @@ Both rely on constant dialogue between short-term focus and long-term understand
 
 ## The Brain's Blueprint for Machine Memory
 
+![Human Working Memory](../../assets/memory-brain-oscillation.png)
+*Frontal cortex focus, hippocampal gating, and microglial pruning—the biological rhythm Synaptik Core reflects.*
 
 In the human brain:
 
