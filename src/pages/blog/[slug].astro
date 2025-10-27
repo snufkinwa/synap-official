@@ -51,10 +51,10 @@ const publishedTime = new Date(post.data.pubDate).toISOString();
 		</div>
 
 		<!-- Content -->
-		<main class="relative z-10 max-w-4xl mx-auto px-6 pt-32 pb-16 flex-grow">
+		<main class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 flex-grow">
 			<article>
-				<header class="mb-10">
-					<h1 class="text-4xl md:text-5xl font-bold mb-3 leading-tight">{post.data.title}</h1>
+				<header class="mb-8 sm:mb-10">
+					<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 leading-tight break-words">{post.data.title}</h1>
 					<time class="text-sm text-gray-500">{date}</time>
 					{post.data.tags?.length ? (
 						<div class="mt-3 flex gap-2 flex-wrap">
@@ -66,17 +66,17 @@ const publishedTime = new Date(post.data.pubDate).toISOString();
 				</header>
 
 				{post.data.heroImage ? (
-					<figure class="mb-8">
-						<img src={post.data.heroImage} alt={post.data.title} class="rounded-lg border border-gray-200" />
+					<figure class="mb-8 -mx-4 sm:mx-0">
+						<img src={post.data.heroImage} alt={post.data.title} class="w-full h-auto rounded-none sm:rounded-lg border-y sm:border border-gray-200" />
 						{post.data.heroImageCaption ? (
-							<figcaption class="mt-2 text-sm text-gray-600 text-left italic">
+							<figcaption class="mt-2 px-4 sm:px-0 text-sm text-gray-600 text-left italic">
 								{post.data.heroImageCaption}
 							</figcaption>
 						) : null}
 					</figure>
 				) : null}
 
-				<div class="prose prose-stone max-w-none">
+				<div class="prose prose-stone max-w-none prose-headings:break-words prose-p:break-words prose-pre:overflow-x-auto prose-img:w-full prose-img:h-auto prose-img:-mx-4 sm:prose-img:mx-0 prose-img:rounded-none sm:prose-img:rounded-lg">
 					<Content />
 				</div>
 			</article>

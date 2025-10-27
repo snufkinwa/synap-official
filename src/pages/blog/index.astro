@@ -36,32 +36,32 @@ const posts = (await getCollection('blog', (entry) => !entry.data.draft))
 		</div>
 
 		<!-- Content -->
-		<main class="relative z-10 max-w-5xl mx-auto px-6 pt-32 pb-16 flex-grow">
+		<main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 flex-grow">
 			<!-- Header -->
-			<header class="mb-20">
-				<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+			<header class="mb-16 sm:mb-20">
+				<h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
 					Blog
 				</h1>
-				<p class="text-lg text-gray-700 max-w-2xl">
+				<p class="text-base sm:text-lg text-gray-700 max-w-2xl">
 					Insights, updates, and thoughts on building verifiable AI systems with persistent memory and enforceable contracts.
 				</p>
 			</header>
 
 			<!-- Blog Posts -->
-			<section class="space-y-12">
+			<section class="space-y-10 sm:space-y-12">
 				{posts.map((post) => {
 					const href = `/blog/${post.slug}`;
 					const date = new Date(post.data.pubDate).toLocaleDateString('en-US', { dateStyle: 'long' });
 					return (
-						<article class="border-b border-gray-300 pb-12 hover:bg-white/50 transition-colors p-6 -mx-6 rounded-lg">
-							<time class="text-sm text-gray-500 mb-3 block">{date}</time>
-							<h2 class="text-3xl font-bold mb-4">
+						<article class="border-b border-gray-300 pb-10 sm:pb-12 hover:bg-white/50 transition-colors p-4 sm:p-6 -mx-4 sm:-mx-6 rounded-lg">
+							<time class="text-sm text-gray-500 mb-2 sm:mb-3 block">{date}</time>
+							<h2 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 break-words">
 								<a href={href} class="hover:opacity-70 transition-opacity">
 									{post.data.title}
 								</a>
 							</h2>
 							{post.data.description && (
-								<p class="text-gray-700 text-lg leading-relaxed mb-4">
+								<p class="text-gray-700 text-base sm:text-lg leading-relaxed mb-4 break-words">
 									{post.data.description}
 								</p>
 							)}
