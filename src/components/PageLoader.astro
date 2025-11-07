@@ -1,0 +1,220 @@
+---
+// Page Loader Component - Shows on initial page load
+// 
+// Usage:
+// - Default: 8 second delay before logo flies to navbar
+// - Custom delay: <PageLoader duration={5} /> (in seconds)
+// - Skip button: Uncomment the skip button in the HTML below
+// - Only shows on first visit per session (uses sessionStorage)
+//
+interface Props {
+  duration?: number; // Duration in seconds before animation starts (default: 8)
+}
+
+const { duration = 8 } = Astro.props;
+---
+
+<div id="page-loader" class="page-loader">
+  <div class="loader-content">
+    <div class="logo-wrapper">
+      <img 
+        src="/synaptik-logo.png" 
+        alt="Synaptik Core" 
+        class="loader-logo"
+        id="loader-logo"
+      />
+    </div>
+    <!-- Optional: Skip button for development -->
+    <!-- <button id="skip-loader" class="skip-button">Skip</button> -->
+  </div>
+</div>
+
+<script define:vars={{ duration }}>
+  // Page loader animation on initial load only
+  const hasLoadedBefore = sessionStorage.getItem('hasLoadedBefore');
+  const pageLoader = document.getElementById('page-loader');
+  const loaderLogo = document.getElementById('loader-logo');
+  const mainContent = document.querySelector('main');
+  const skipButton = document.getElementById('skip-loader');
+
+  function animateLogo() {
+    const navLogo = document.querySelector('nav img[alt="Synaptik Core"]');
+    
+    if (pageLoader && loaderLogo && navLogo) {
+      // Get the position of the nav logo
+      const navLogoRect = navLogo.getBoundingClientRect();
+      const loaderLogoRect = loaderLogo.getBoundingClientRect();
+
+      // Calculate the distance to move
+      const deltaX = navLogoRect.left - loaderLogoRect.left;
+      const deltaY = navLogoRect.top - loaderLogoRect.top;
+      
+      // Calculate scale difference
+      const scaleX = navLogoRect.width / loaderLogoRect.width;
+
+      // Add flying class to trigger animation
+      const logoWrapper = loaderLogo.parentElement;
+      if (logoWrapper) {
+        logoWrapper.classList.add('flying');
+      }
+      loaderLogo.classList.add('flying');
+      loaderLogo.style.setProperty('--delta-x', `${deltaX}px`);
+      loaderLogo.style.setProperty('--delta-y', `${deltaY}px`);
+      loaderLogo.style.setProperty('--scale-x', scaleX.toString());
+
+      // Fade out the loader background
+      pageLoader.classList.add('fading');
+
+      // After animation completes (1.2s), hide loader and show content
+      setTimeout(() => {
+        pageLoader.style.display = 'none';
+        
+        // Fade in the main content
+        if (mainContent) {
+          mainContent.style.transition = 'opacity 0.8s ease-in-out';
+          mainContent.style.opacity = '1';
+        }
+      }, 1200);
+    }
+  }
+
+  // If already loaded before in this session, skip animation
+  if (hasLoadedBefore) {
+    if (pageLoader) pageLoader.style.display = 'none';
+    if (mainContent) mainContent.style.opacity = '1';
+  } else {
+    // First load - show animation
+    sessionStorage.setItem('hasLoadedBefore', 'true');
+
+    // Set initial state
+    if (mainContent) {
+      mainContent.style.opacity = '0';
+    }
+
+    // Optional: Skip button functionality
+    if (skipButton) {
+      skipButton.addEventListener('click', animateLogo);
+    }
+
+    // Start animation after specified duration
+    setTimeout(animateLogo, duration * 1000);
+  }
+</script>
+
+<style>
+  .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #fafaf9; /* stone-50 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .page-loader.fading {
+    opacity: 0;
+  }
+
+  .loader-content {
+    text-align: center;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    filter: drop-shadow(0 0 20px rgba(79, 70, 229, 0.3));
+    transition: filter 0.5s ease;
+  }
+
+  .logo-wrapper.flying {
+    filter: drop-shadow(0 0 40px rgba(79, 70, 229, 0.6));
+  }
+
+  .loader-logo {
+    width: 8rem;
+    height: 8rem;
+    object-fit: contain;
+    animation: logoEntry 1.5s ease-out forwards, logoSpin 3s ease-in-out 1.5s infinite;
+    transition: none;
+  }
+
+  .loader-logo.flying {
+    animation: logoFlyWithSpin 1.2s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  }
+
+  /* Entry animation - logo appears with rotation */
+  @keyframes logoEntry {
+    0% {
+      transform: scale(0.3) rotate(-180deg);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.1) rotate(10deg);
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  /* Continuous gentle spin while waiting */
+  @keyframes logoSpin {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.05) rotate(5deg);
+    }
+    50% {
+      transform: scale(1) rotate(0deg);
+    }
+    75% {
+      transform: scale(1.05) rotate(-5deg);
+    }
+  }
+
+  /* Flying animation with dramatic spin */
+  @keyframes logoFlyWithSpin {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    15% {
+      transform: translate(0, -20px) scale(1.1) rotate(90deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--delta-x), var(--delta-y)) scale(calc(var(--scale-x))) rotate(720deg);
+      opacity: 1;
+    }
+  }
+
+  /* Prevent scroll during loading */
+  body:has(.page-loader:not([style*="display: none"])) {
+    overflow: hidden;
+  }
+
+  /* Skip button (uncomment in HTML to use) */
+  .skip-button {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #1f2937;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+  }
+
+  .skip-button:hover {
+    opacity: 1;
+    background-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+</style>

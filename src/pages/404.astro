@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '404 - Not Found - Synaptik Core';
+const description = "This route doesn't exist in our cognitive architecture.";
+---
+
+<Layout title={title} description={description}>
+  <Navigation />
+
+  <main class="min-h-screen bg-stone-50 flex flex-col">
+    <div class="flex-grow flex items-center justify-center px-4 py-12 relative overflow-hidden">
+      <!-- Floating background dots container -->
+      <div id="float-container" class="absolute inset-0 pointer-events-none overflow-hidden"></div>
+
+      <div class="relative z-10 text-center max-w-2xl w-full">
+        <!-- Animated 404 heading -->
+        <div class="mb-6 transform-gpu animate-appear">
+          <h1 class="text-[8rem] sm:text-[10rem] md:text-[12rem] font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 leading-none">
+            404
+          </h1>
+        </div>
+
+      <div class="space-y-4 mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-neutral-900">Neural pathway not found</h2>
+        <p class="text-base sm:text-lg text-neutral-600 max-w-md mx-auto">This route doesn't exist in our cognitive architecture. The AI must have forgotten to index this memory.</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+        <a href="/" class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transition-colors">Return to Core</a>
+        <button onclick="history.back()" class="px-6 py-3 bg-white text-neutral-900 font-semibold rounded-lg shadow hover:bg-neutral-100 transition-colors ring-1 ring-neutral-200">Go Back</button>
+      </div>
+
+      <!-- Animated brain SVG -->
+      <div class="mt-6 opacity-80">
+        <svg class="w-48 h-48 mx-auto" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <!-- Nodes -->
+          <g id="nodes">
+            <circle class="node" cx="50" cy="50" r="8" fill="#4f46e5" />
+            <circle class="node" cx="150" cy="50" r="8" fill="#4f46e5" />
+            <circle class="node" cx="100" cy="100" r="8" fill="#4f46e5" />
+            <circle class="node" cx="50" cy="150" r="8" fill="#4f46e5" />
+            <circle class="node" cx="150" cy="150" r="8" fill="#4f46e5" />
+          </g>
+
+          <!-- Lines -->
+          <g stroke="#4f46e5" stroke-width="2" stroke-opacity="0.3" fill="none" id="lines">
+            <line class="link" x1="50" y1="50" x2="100" y2="100" />
+            <line class="link" x1="150" y1="50" x2="100" y2="100" />
+            <line class="link" x1="100" y1="100" x2="50" y2="150" />
+            <line class="link" x1="100" y1="100" x2="150" y2="150" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="mt-6 text-sm text-neutral-500">
+        <code class="bg-neutral-100 px-3 py-1 rounded font-mono">ERROR: Memory address 0x404 not allocated</code>
+      </div>
+    </div>
+    </div>
+
+    <Footer />
+  </main>
+
+  <style>
+    /* Appear animation */
+    @keyframes appear { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .animate-appear { animation: appear 700ms cubic-bezier(.22,.9,.29,1) both; }
+
+    /* Floating dot animation - each dot will get its own duration/delay via inline style */
+    @keyframes floatMove {
+      0% { transform: translate3d(var(--sx), var(--sy), 0) scale(1); opacity: .8; }
+      50% { transform: translate3d(var(--mx), var(--my), 0) scale(1.3); opacity: .5; }
+      100% { transform: translate3d(var(--ex), var(--ey), 0) scale(1); opacity: .8; }
+    }
+
+    #float-container .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: rgba(79,70,229,0.08); /* indigo-600/8 */
+      will-change: transform, opacity;
+      animation-name: floatMove;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    /* Node pulse */
+    @keyframes nodePulse { 0% { transform: scale(0); opacity: 0; } 50% { transform: scale(1.15); opacity: 1; } 100% { transform: scale(1); opacity: .9; } }
+    .node { transform-origin: center; animation: nodePulse 1.2s ease-in-out infinite; }
+
+    /* Link draw animation */
+    .link { stroke-dasharray: 200; stroke-dashoffset: 200; animation: draw 1s ease forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      h1 { font-size: 6rem; }
+    }
+  </style>
+
+  <script>
+    // Populate floating dots with randomized paths
+    (function () {
+      const container = document.getElementById('float-container');
+      if (!container) return;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const count = 18;
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'dot';
+        // random start/mid/end positions
+        const sx = Math.random() * width - width/2 + 'px';
+        const sy = Math.random() * height - height/2 + 'px';
+        const mx = Math.random() * width - width/2 + 'px';
+        const my = Math.random() * height - height/2 + 'px';
+        const ex = Math.random() * width - width/2 + 'px';
+        const ey = Math.random() * height - height/2 + 'px';
+        el.style.setProperty('--sx', sx);
+        el.style.setProperty('--sy', sy);
+        el.style.setProperty('--mx', mx);
+        el.style.setProperty('--my', my);
+        el.style.setProperty('--ex', ex);
+        el.style.setProperty('--ey', ey);
+        const dur = 18 + Math.floor(Math.random() * 14);
+        const delay = Math.floor(Math.random() * 8) * -1;
+        el.style.animationDuration = dur + 's';
+        el.style.animationDelay = delay + 's';
+        // random initial placement so they don't all start stacked
+        el.style.left = Math.random() * 100 + '%';
+        el.style.top = Math.random() * 100 + '%';
+        container.appendChild(el);
+      }
+
+      // Slightly stagger node pulses to feel organic
+      const nodes = document.querySelectorAll('.node');
+      nodes.forEach((n, idx) => {
+        // @ts-ignore - runtime DOM elements will have a style property
+        n.style.animationDelay = (0.2 + idx * 0.12) + 's';
+      });
+    })();
+  </script>
+</Layout>

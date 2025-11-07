@@ -6,50 +6,108 @@ interface Props {
 const { activePage } = Astro.props;
 ---
 
-<nav class="fixed top-0 left-0 right-0 bg-stone-50/80 backdrop-blur-sm z-50 border-b border-gray-200">
-  <div class="max-w-7xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo/Home Link -->
-      <a 
-        href="https://synaptik-core.dev" 
-        class="flex items-center hover:opacity-70 transition-opacity external-link"
-        aria-label="Synaptik Core Home"
-        data-external="true"
-      >
+<!-- Navigation -->
+<div class="w-full h-12 sm:h-14 md:h-16 lg:h-[84px] flex justify-center items-center z-50 px-6 sm:px-8 md:px-12 lg:px-0 relative">
+  <div class="w-full h-0 absolute left-0 top-6 sm:top-7 md:top-8 lg:top-[42px] border-t border-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white]"></div>
+
+  <div class="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)] lg:max-w-[700px] lg:w-[700px] h-10 sm:h-11 md:h-[52px] lg:h-14 py-1.5 sm:py-2 md:py-2.5 lg:py-3 px-3 sm:px-4 md:px-5 lg:px-6 pr-2 sm:pr-3 md:pr-3 lg:pr-3 bg-stone-50 backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex justify-between items-center relative z-30">
+    <div class="flex justify-center items-center">
+      <a href="/" class="flex justify-start items-center hover:opacity-80 transition-opacity">
         <img 
           src="/synaptik-logo.png" 
           alt="Synaptik Core" 
-          class="w-8 h-8 object-contain"
+          class="w-6 h-6 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-10 lg:h-10 object-contain"
         />
       </a>
-
-      <!-- Navigation Links -->
-      <ul class="flex items-center gap-8 text-sm">
-        <li>
-          <a 
-            href="/docs" 
-            class={activePage === 'docs' ? 'font-medium' : 'hover:opacity-70'}
-          >
-            Docs
-          </a>
-        </li>
-        <li>
-          <a 
-            href="/blog" 
-            class={activePage === 'blog' ? 'font-medium' : 'hover:opacity-70'}
-          >
+      <div class="pl-3 sm:pl-4 md:pl-6 lg:pl-6 flex justify-start items-start hidden sm:flex flex-row gap-2 sm:gap-3 md:gap-5 lg:gap-6">
+        <a href="/blog" class="flex justify-start items-center hover:opacity-80 transition-opacity">
+          <div class="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[15px] lg:text-base font-medium leading-[14px] md:leading-[18px] lg:leading-5 font-sans">
             Blog
-          </a>
-        </li>
-        <li>
-          <a href="mailto:janayharris@synaptik-core.dev" class="hover:opacity-70">
+          </div>
+        </a>
+        <a href="mailto:janayharris@synaptik-core.dev" class="flex justify-start items-center hover:opacity-80 transition-opacity">
+          <div class="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[15px] lg:text-base font-medium leading-[14px] md:leading-[18px] lg:leading-5 font-sans">
             Contact
-          </a>
-        </li>
-      </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="h-6 sm:h-7 md:h-9 lg:h-10 flex justify-start items-start gap-2 sm:gap-3">
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-toggle" class="sm:hidden inline-flex items-center justify-center p-1 rounded-md text-neutral-900 hover:bg-neutral-900/5" aria-label="Open menu">
+        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Waitlist button - hidden on mobile, visible on sm and up -->
+      <a href="#waitlist" class="hidden sm:flex px-2 sm:px-3 md:px-4 lg:px-5 py-1 sm:py-[6px] md:py-2 lg:py-2.5 bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full justify-center items-center hover:bg-neutral-50 transition-colors">
+        <div class="flex flex-col justify-center text-[#37322F] text-xs md:text-[15px] lg:text-base font-medium leading-5 font-sans">
+          Waitlist
+        </div>
+      </a>
     </div>
   </div>
-</nav>
+</div>
+
+<script>
+  (function(){
+    // Create and append mobile menu to body
+    const mobileMenu = document.createElement('div');
+    mobileMenu.id = 'mobile-menu';
+    mobileMenu.className = 'fixed inset-0 z-[9999] hidden bg-stone-50 sm:hidden overflow-y-auto';
+    mobileMenu.innerHTML = `
+      <div class="px-4 pt-6 pb-4 flex items-center justify-between border-b border-neutral-900/6 sticky top-0 bg-stone-50 z-[10000]">
+        <a href="/" class="flex items-center">
+          <img src="/synaptik-logo.png" alt="Synaptik Core" class="w-8 h-8" />
+        </a>
+        <button id="mobile-menu-close" class="rounded-full p-2 hover:bg-neutral-900/5" aria-label="Close menu">
+          <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <nav class="px-6 py-6 space-y-6">
+        <ul class="space-y-4">
+          <li><a href="/blog" class="block text-lg font-medium text-neutral-900 hover:text-neutral-900/80">Blog</a></li>
+          <li><a href="mailto:janayharris@synaptik-core.dev" class="block text-lg font-medium text-neutral-900 hover:text-neutral-900/80">Contact</a></li>
+          <li><a href="#waitlist" class="block text-lg font-medium text-white bg-neutral-900 px-4 py-2 rounded-full hover:bg-neutral-800 transition-colors text-center">Waitlist</a></li>
+        </ul>
+      </nav>
+    `;
+    document.body.appendChild(mobileMenu);
+    
+    const openBtn = document.getElementById('mobile-menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!openBtn || !menu) return;
+    
+    const toggleMenu = (shouldOpen: boolean) => {
+      if (shouldOpen) {
+        menu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        menu.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    };
+
+    openBtn.addEventListener('click', () => toggleMenu(true));
+    
+    // Close button handler (needs to be attached after menu is created)
+    setTimeout(() => {
+      const closeBtn = document.getElementById('mobile-menu-close');
+      if (closeBtn) closeBtn.addEventListener('click', () => toggleMenu(false));
+    }, 0);
+    
+    // close when clicking a link
+    menu.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target && target instanceof Element && target.closest('a')) {
+        menu.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    });
+  })();
+</script>
 
 <!-- Loading Screen -->
 <div id="loading-screen" class="loading-screen hidden">

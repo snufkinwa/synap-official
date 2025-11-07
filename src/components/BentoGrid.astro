@@ -1,0 +1,316 @@
+---
+// Synaptik Core – Bento Grid
+// Features showcase grid with inline SVG previews
+---
+
+<div class="w-full sm:pt-10 sm:pb-16 md:pt-12 md:pb-20 lg:pt-16 lg:pb-24">
+  <div class="flex flex-col items-center gap-3 sm:gap-4 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-indigo-50 rounded-full">
+      <div class="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div>
+      <span class="text-indigo-600 text-xs sm:text-sm font-medium">Core Features</span>
+    </div>
+
+       <!-- Title -->
+    <h2 class="text-center text-[#37322F] text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+      The Core Framework
+    </h2>
+    
+    <!-- Tagline -->
+    <p class="text-center text-[#605A57] text-base sm:text-lg md:text-xl max-w-2xl px-4">
+      Synaptik Core’s architecture combines memory integrity, policy enforcement, auditability, and proof. The foundation of trustworthy autonomy.
+    </p>
+    
+ 
+  </div>
+
+  <div class="self-stretch flex justify-center items-start border-t border-b border-[rgba(55,50,47,0.12)]">
+    <div class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+      <!-- Left decorative pattern -->
+      <div class="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
+        {Array.from({ length: 200 }).map(() => (
+          <div class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"></div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
+    <!-- Top Left — Verifiable Memory -->
+    <div class="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+          Verifiable Memory
+        </h3>
+        <p class="text-[#605A57] text-sm md:text-base leading-relaxed font-sans">
+          Persistent, signed memory for intelligent systems. Every write is hashed, and every read is auditable.
+        </p>
+      </div>
+      <div class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden">
+        <svg class="syn-memory w-full h-full" viewBox="0 0 600 360" aria-hidden="true">
+          <defs>
+            <linearGradient id="mg" x1="0" x2="1">
+              <stop offset="0%" stop-color="#EEF2FF" />
+              <stop offset="100%" stop-color="#FDF2F8" />
+            </linearGradient>
+          </defs>
+
+          <rect width="100%" height="100%" rx="8" fill="url(#mg)" />
+
+          <!-- edges -->
+          <g stroke="#111827" stroke-opacity="0.18" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="90,120 200,70 310,130 420,60" />
+            <polyline points="200,70 160,220 320,250 500,160" />
+            <polyline points="310,130 460,230" />
+          </g>
+
+          <!-- nodes -->
+          <g fill="#111827" opacity="0.7">
+            <circle cx="90" cy="120" r="6" />
+            <circle cx="200" cy="70" r="6" />
+            <circle cx="310" cy="130" r="6" />
+            <circle cx="420" cy="60" r="6" />
+            <circle cx="500" cy="160" r="6" />
+            <circle cx="160" cy="220" r="6" />
+            <circle cx="320" cy="250" r="6" />
+            <circle cx="460" cy="230" r="6" />
+          </g>
+
+          <!-- caption -->
+          <text x="24" y="330" fill="#605A57" font-size="12">Memory Graph • signed, append-only</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Top Right — Contract Engine -->
+    <div class="border-b border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[#37322F] font-semibold leading-tight font-sans text-lg sm:text-xl">
+          Contract Engine
+        </h3>
+        <p class="text-[#605A57] text-sm md:text-base leading-relaxed font-sans">
+          Run intelligent systems under enforceable policies. Constraints are defined in code and verified at runtime.
+        </p>
+      </div>
+      <div class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
+        <svg class="w-full h-full" viewBox="0 0 600 360" aria-hidden="true">
+          <rect width="100%" height="100%" rx="12" fill="#FAFAFA" />
+          <g transform="translate(40,40)" font-family="ui-sans-serif" font-size="12">
+            <rect x="0" y="0" width="520" height="40" rx="8" fill="#FFFFFF" stroke="#0000001a" />
+            <text x="14" y="24" fill="#37322F">Intent: <tspan font-weight="600">plan_scan</tspan> • Site: N-17</text>
+
+            <rect x="0" y="60" width="520" height="110" rx="8" fill="#FFFFFF" stroke="#0000001a" />
+            <text x="14" y="82" fill="#37322F" font-weight="600">Policies</text>
+            <g fill="#605A57">
+              <text x="14" y="104">• core.v0.4 / data_exfiltration == false</text>
+              <text x="14" y="124">• rover.power_budget(ms) &lt;= 8000</text>
+              <text x="14" y="144">• geo_bounds ∈ mission.zone</text>
+            </g>
+
+            <rect x="0" y="180" width="520" height="100" rx="8" fill="#FFFFFF" stroke="#0000001a" />
+            <text x="14" y="202" fill="#37322F" font-weight="600">Evaluation</text>
+            <g>
+              <!-- Status badges -->
+              <g transform="translate(14,220)">
+                <rect width="120" height="24" rx="6" fill="#FFFFFF" stroke="#16A34A55" />
+                <circle cx="12" cy="12" r="5" fill="#16A34A" />
+                <text x="26" y="16" fill="#37322F">core.v0.4</text>
+              </g>
+              <g transform="translate(140,220)">
+                <rect width="120" height="24" rx="6" fill="#FFFFFF" stroke="#16A34A55" />
+                <circle cx="12" cy="12" r="5" fill="#16A34A" />
+                <text x="26" y="16" fill="#37322F">power_budget</text>
+              </g>
+              <g transform="translate(290,220)">
+                <rect width="120" height="24" rx="6" fill="#FFFFFF" stroke="#F59E0B55" />
+                <circle cx="12" cy="12" r="5" fill="#F59E0B" />
+                <text x="26" y="16" fill="#37322F">geo_bounds</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Bottom Left — Transparent Audit -->
+    <div class="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+          Transparent Audit
+        </h3>
+        <p class="text-[#605A57] text-sm md:text-base leading-relaxed font-sans">
+          Export cryptographically signed evidence packs for audit, compliance, or research validation.
+        </p>
+      </div>
+      <div class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden justify-center items-center relative bg-transparent">
+        <svg class="w-full h-full" viewBox="0 0 600 360" aria-hidden="true">
+          <rect width="100%" height="100%" rx="12" fill="#FFFFFF" />
+          <g transform="translate(40,40)" font-family="ui-sans-serif" font-size="12">
+            <text x="0" y="0" dy="12" fill="#37322F" font-weight="600">Evidence Pack</text>
+
+            <rect x="0" y="24" width="520" height="80" rx="8" fill="#FAFAFA" stroke="#00000012" />
+            <text x="14" y="48" fill="#605A57">action_id: <tspan fill="#111827" font-weight="600">act_01JC9ZQ3A7</tspan></text>
+            <text x="14" y="68" fill="#605A57">hash: <tspan fill="#111827">0x8e44f2…c1</tspan></text>
+            <text x="14" y="88" fill="#605A57">sig: <tspan fill="#111827">ed25519:Qm…</tspan></text>
+
+            <rect x="0" y="120" width="520" height="140" rx="8" fill="#FAFAFA" stroke="#00000012" />
+            <text x="14" y="144" fill="#37322F" font-weight="600">Artifacts</text>
+            <g fill="#605A57">
+              <text x="14" y="166">• policy_eval.json</text>
+              <text x="14" y="186">• memory_diff.jsonl</text>
+              <text x="14" y="206">• inputs.json</text>
+              <text x="14" y="226">• decision.json</text>
+            </g>
+
+            <rect x="0" y="272" width="160" height="32" rx="8" fill="#111827" />
+            <text x="16" y="294" fill="#FFFFFF" font-weight="600">Download (signed)</text>
+          </g>
+        </svg>
+        <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-stone-50 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Right — Action Ledger (mini) -->
+    <div class="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
+          Action Ledger
+        </h3>
+        <p class="text-[#605A57] text-sm md:text-base leading-relaxed font-sans">
+          Trace every decision with proofs. Inspect policy results, memory writes, and signatures in one place.
+        </p>
+      </div>
+      <div class="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
+        <svg class="w-full h-full" viewBox="0 0 600 360" aria-hidden="true">
+          <rect width="100%" height="100%" rx="12" fill="#FFFFFF" />
+          <g transform="translate(28,28)" font-family="ui-sans-serif" font-size="12">
+            <!-- Header row -->
+            <g transform="translate(0,0)">
+              <rect width="40" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">#</text>
+            </g>
+            <g transform="translate(50,0)">
+              <rect width="120" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">agent</text>
+            </g>
+            <g transform="translate(180,0)">
+              <rect width="120" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">intent</text>
+            </g>
+            <g transform="translate(310,0)">
+              <rect width="110" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">policy</text>
+            </g>
+            <g transform="translate(430,0)">
+              <rect width="70" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">status</text>
+            </g>
+            <g transform="translate(510,0)">
+              <rect width="60" height="32" rx="6" fill="#FAFAFA" stroke="#00000012" />
+              <text x="10" y="20" fill="#605A57">hash</text>
+            </g>
+
+            <!-- Row 1 -->
+            <g transform="translate(0,48)">
+              <rect width="40" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">42</text>
+            </g>
+            <g transform="translate(50,48)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">rover-α</text>
+            </g>
+            <g transform="translate(180,48)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">plan_scan</text>
+            </g>
+            <g transform="translate(310,48)">
+              <rect width="110" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">core.v0.4</text>
+            </g>
+            <g transform="translate(430,48)">
+              <rect width="70" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <circle cx="14" cy="14" r="5" fill="#16A34A" />
+              <text x="28" y="18" fill="#37322F">verified</text>
+            </g>
+            <g transform="translate(510,48)">
+              <rect width="60" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F" font-family="ui-monospace, monospace">0x8e…</text>
+            </g>
+
+            <!-- Row 2 -->
+            <g transform="translate(0,84)">
+              <rect width="40" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">43</text>
+            </g>
+            <g transform="translate(50,84)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">etl-beta</text>
+            </g>
+            <g transform="translate(180,84)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">ingest</text>
+            </g>
+            <g transform="translate(310,84)">
+              <rect width="110" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">core.v0.4</text>
+            </g>
+            <g transform="translate(430,84)">
+              <rect width="70" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <circle cx="14" cy="14" r="5" fill="#F59E0B" />
+              <text x="28" y="18" fill="#37322F">review</text>
+            </g>
+            <g transform="translate(510,84)">
+              <rect width="60" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F" font-family="ui-monospace, monospace">0x3a…</text>
+            </g>
+
+            <!-- Row 3 -->
+            <g transform="translate(0,120)">
+              <rect width="40" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">44</text>
+            </g>
+            <g transform="translate(50,120)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">ops-γ</text>
+            </g>
+            <g transform="translate(180,120)">
+              <rect width="120" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">rotate_keys</text>
+            </g>
+            <g transform="translate(310,120)">
+              <rect width="110" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F">sec.v1.1</text>
+            </g>
+            <g transform="translate(430,120)">
+              <rect width="70" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <circle cx="14" cy="14" r="5" fill="#16A34A" />
+              <text x="28" y="18" fill="#37322F">verified</text>
+            </g>
+            <g transform="translate(510,120)">
+              <rect width="60" height="28" rx="6" fill="#FFFFFF" stroke="#0000000f" />
+              <text x="10" y="18" fill="#37322F" font-family="ui-monospace, monospace">0xa1…</text>
+            </g>
+          </g>
+        </svg>
+        <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-stone-50 to-transparent pointer-events-none"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+    <!-- Right decorative pattern -->
+    <div class="w-[120px] sm:w-[140px] md:w-[162px] right-[-40px] sm:right-[-50px] md:right-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
+      {Array.from({ length: 200 }).map(() => (
+        <div class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"></div>
+      ))}
+    </div>
+  </div>
+  </div>
+</div>
+
+<style>
+  /* kill global icon resets that might fill the paths */
+  .syn-memory path,
+  .syn-memory polyline {
+    fill: none;
+  }
+</style>

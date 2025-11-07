@@ -112,8 +112,59 @@ if (publishedTime && type === 'article') {
 		
 		<ClientRouter />
 	</head>
-	<body>
+	<body class="bg-stone-50">
 		<slot />
+		<script>
+			const initFadeObserver = () => {
+				const fadeElements = () => document.querySelectorAll('[data-fade]');
+
+				const revealAll = () => {
+					fadeElements().forEach((el) => el.classList.add('is-visible'));
+				};
+
+				if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+					revealAll();
+					document.addEventListener('astro:after-swap', revealAll);
+					document.addEventListener('astro:page-load', revealAll);
+					return;
+				}
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-visible');
+								observer.unobserve(entry.target);
+							}
+						});
+					},
+					{
+						threshold: 0.15,
+						rootMargin: '0px 0px -10% 0px'
+					}
+				);
+
+				const observeElements = () => {
+					fadeElements().forEach((el) => {
+						if (el.dataset.fadeObserved === 'true' || el.classList.contains('is-visible')) {
+							return;
+						}
+						el.dataset.fadeObserved = 'true';
+						observer.observe(el);
+					});
+				};
+
+				observeElements();
+				document.addEventListener('astro:after-swap', observeElements);
+				document.addEventListener('astro:page-load', observeElements);
+			};
+
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initFadeObserver, { once: true });
+			} else {
+				initFadeObserver();
+			}
+		</script>
 	</body>
 </html>
 

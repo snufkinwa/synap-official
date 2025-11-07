@@ -1,4 +1,51 @@
 ---
-// Redirect to blog by default
-return Astro.redirect('/blog');
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import LandingHero from '../components/LandingHero.astro';
+import BentoGrid from '../components/BentoGrid.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Synaptik Core — Waitlist';
+const description = 'A cognitive runtime that makes AI systems verifiable: persistent memory, enforceable contracts, and transparent logs by design.';
 ---
+
+<Layout title={title} description={description}>
+	<main class="relative bg-stone-50">
+		<!-- Navigation wrapper with its own rules -->
+		<div class="w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] mx-auto relative pointer-events-none" data-fade>
+			<div class="absolute left-4 sm:left-6 md:left-8 lg:left-0 top-0 w-[1px] h-[84px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white]"></div>
+			<div class="absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 w-[1px] h-[84px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white]"></div>
+			<div class="pointer-events-auto">
+				<Navigation />
+			</div>
+		</div>
+
+		<!-- Shared wrapper for Hero and BentoGrid with continuous vertical rules -->
+		<div class="w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] mx-auto relative pointer-events-none">
+			<!-- Left vertical line spanning both sections -->
+			<div class="absolute left-4 sm:left-6 md:left-8 lg:left-0 top-0 bottom-0 w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white]"></div>
+			
+			<!-- Right vertical line spanning both sections -->
+			<div class="absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bottom-0 w-[1px] bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white]"></div>
+			
+			<section data-fade class="pointer-events-auto">
+				<LandingHero />
+			</section>
+			<section data-fade class="pointer-events-auto">
+				<BentoGrid />
+			</section>
+			<section data-fade class="pointer-events-auto">
+				<FAQ />
+			</section>
+			<section data-fade class="pointer-events-auto">
+				<CTASection />
+			</section>
+		</div>
+
+
+
+		<Footer />
+	</main>
+</Layout>

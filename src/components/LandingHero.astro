@@ -1,0 +1,193 @@
+---
+// Landing Hero Component for Synaptik Core
+---
+
+<section class="relative w-full overflow-x-hidden flex flex-col items-center">
+  <div class="w-full flex flex-col items-center px-2 sm:px-4 md:px-8 lg:px-0 pt-16 sm:pt-20 md:pt-24 lg:pt-[200px] pb-12 sm:pb-16 md:pb-20 lg:pb-24 gap-12 sm:gap-14 md:gap-16">
+    <div class="w-full max-w-[937px] flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1 bg-indigo-50 rounded-full">
+      <span class="text-indigo-600 text-xs sm:text-sm font-medium">Waitlist v1 · Coming Soon</span>
+    </div>
+      <h1 class="w-full max-w-[748.71px] text-center text-[#37322F] text-[48px] xs:text-[36px] sm:text-[48px] md:text-[64px] lg:text-[80px] font-extrabold leading-[1.1] sm:leading-[1.15] md:leading-[1.2] tracking-tight px-2 sm:px-4 md:px-0">
+        Memory. Ethics.<br />
+        Audit. <span class="text-indigo-600">Core.</span>
+      </h1>
+      <div class="w-full max-w-[506px] text-center flex flex-col items-center text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 font-sans px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm">
+        A cognitive runtime that makes AI systems verifiable:
+        <br class="hidden sm:block" />
+        persistent memory, enforceable contracts, and transparent logs by design.
+      </div>
+    </div>
+
+    <div id="waitlist" class="w-full max-w-[420px] flex flex-col items-center gap-5 sm:gap-6 md:gap-8 lg:gap-10 relative scroll-mt-24">
+      <div class="relative z-10 w-full flex justify-center">
+        <form
+          action="/api/waitlist"
+          method="post"
+          data-waitlist-form
+          class="w-full bg-white/18 sm:bg-white/20 backdrop-blur-xl border border-white/35 rounded-[24px] p-3.5 sm:p-4 shadow-[0_14px_32px_rgba(7,16,31,0.18)] flex flex-col gap-2.5 sm:gap-3"
+        >
+          <label for="waitlist-email" class="sr-only">Email address</label>
+          <div class="relative">
+            <span class="absolute inset-y-0 left-4 flex items-center text-[#7D7875]">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 4.5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1Z" stroke="#7D7875" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M3.5 6 10 10.25 16.5 6" stroke="#7D7875" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+            <input
+              id="waitlist-email"
+              name="email"
+              type="email"
+              placeholder="Your email..."
+              class="w-full h-11 sm:h-12 rounded-[16px] border border-white/40 bg-white/90 text-[#37322F] text-sm sm:text-base font-medium font-sans placeholder:text-[#7D7875] pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="h-11 sm:h-12 rounded-[18px] bg-[#090F1F] text-white text-sm sm:text-base font-semibold font-sans shadow-[0_10px_22px_rgba(9,15,31,0.32)] hover:bg-[#111832] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Join The Waitlist
+          </button>
+          <p
+            data-waitlist-status
+            class="text-center text-xs font-medium text-[#37322F]/80 min-h-[1rem] transition-colors"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <img
+          src="/mask-group-pattern.svg"
+          alt=""
+          class="w-[936px] sm:w-[1404px] md:w-[2106px] lg:w-[2808px] h-auto opacity-30 sm:opacity-40 md:opacity-50 mix-blend-multiply"
+          style="filter: hue-rotate(15deg) saturate(0.7) brightness(1.2);"
+        />
+      </div>
+    </div>
+
+    <div class="w-full border-t border-b border-[#E0DEDB] flex justify-center items-start">
+      <div class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+        <div class="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
+          {Array.from({ length: 50 }).map(() => (
+            <div class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"></div>
+          ))}
+        </div>
+      </div>
+
+      <div class="flex-1 flex flex-col md:flex-row justify-center items-stretch z-1">
+        <div class="w-full md:flex-1 self-stretch px-6 py-5 flex flex-col justify-start items-start gap-2 bg-white">
+          <div class="self-stretch flex flex-col text-[#49423D] text-sm font-semibold leading-6 font-sans">
+            Verifiable Memory
+          </div>
+          <div class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] font-sans">
+            Persistent, signed memory for intelligence systems. Every write is hashed, every read is auditable.
+          </div>
+        </div>
+
+        <div class="w-full md:flex-1 self-stretch px-6 py-5 flex flex-col justify-start items-start gap-2 bg-white border-t border-[#E0DEDB] md:border-t-0 md:border-l md:border-r md:border-[#E0DEDB]">
+          <div class="self-stretch flex flex-col text-[#49423D] text-sm font-semibold leading-6 font-sans">
+            Contract Engine
+          </div>
+          <div class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] font-sans">
+            Run intelligent systems under enforceable policies. Constraints are defined in code and verified at runtime.
+          </div>
+        </div>
+
+        <div class="w-full md:flex-1 self-stretch px-6 py-5 flex flex-col justify-start items-start gap-2 bg-white border-t border-[#E0DEDB] md:border-t-0">
+          <div class="self-stretch flex flex-col text-[#49423D] text-sm font-semibold leading-6 font-sans">
+            Transparent Audit
+          </div>
+          <div class="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] font-sans">
+            Generate one-click evidence packs for security, research, or regulatory review. Every action is backed by verifiable proof.
+          </div>
+        </div>
+      </div>
+
+      <div class="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+        <div class="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
+          {Array.from({ length: 50 }).map(() => (
+            <div class="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+  const bindWaitlistForm = () => {
+    const form = document.querySelector('[data-waitlist-form]');
+    if (!form || form.dataset.waitlistBound === 'true') {
+      return;
+    }
+
+    form.dataset.waitlistBound = 'true';
+    const statusEl = form.querySelector('[data-waitlist-status]');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    const setStatus = (message, type = 'info') => {
+      if (!statusEl) return;
+      statusEl.textContent = message;
+      statusEl.classList.remove('text-emerald-600', 'text-red-500');
+      if (type === 'success') {
+        statusEl.classList.add('text-emerald-600');
+      } else if (type === 'error') {
+        statusEl.classList.add('text-red-500');
+      }
+    };
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (form.dataset.submitting === 'true') return;
+
+      form.dataset.submitting = 'true';
+      setStatus('Adding you to the list…');
+      submitButton?.setAttribute('aria-busy', 'true');
+      submitButton?.setAttribute('disabled', 'true');
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method || 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        const payload = await response.json().catch(() => ({}));
+
+        if (!response.ok || payload.error) {
+          throw new Error(payload.error || 'Unable to save email right now.');
+        }
+
+        form.reset();
+        setStatus('You are on the list!', 'success');
+      } catch (error) {
+        setStatus(error instanceof Error ? error.message : 'Something went wrong.', 'error');
+      } finally {
+        form.dataset.submitting = 'false';
+        submitButton?.removeAttribute('aria-busy');
+        submitButton?.removeAttribute('disabled');
+      }
+    });
+  };
+
+  const initWaitlistForm = () => {
+    bindWaitlistForm();
+
+    const globalKey = '__waitlistListenersRegistered';
+    if (!(window)[globalKey]) {
+      window[globalKey] = true;
+      document.addEventListener('astro:after-swap', bindWaitlistForm);
+      document.addEventListener('astro:page-load', bindWaitlistForm);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWaitlistForm, { once: true });
+  } else {
+    initWaitlistForm();
+  }
+</script>
