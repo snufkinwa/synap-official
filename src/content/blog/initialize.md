@@ -18,7 +18,7 @@ Synaptik Core was born out of lived experience. Out of moments where I needed st
 
 That question became the soul of the system.
 
-Synaptik Core is not just software. It is a local first cognitive runtime, a stateful layer that runs every reasoning and memory update through governance, records the decision, mutates its internal state, and exposes a full, explainable history of how cognition evolved.
+Synaptik Core is not just software. It is a local first cognitive substrate, a stateful layer that runs every reasoning and memory update through governance, records the decision, mutates its internal state, and exposes a full, explainable history of how cognition evolved.
 
 It is memory with a conscience.
 
@@ -60,6 +60,6 @@ Every governed action creates a human readable event record. These logs preserve
 
 ## The Next Step
 
-This is the initialization log, the first entry in what will become a longer story. Future posts will dive into what happens inside that governance layer, how admission decisions work, and how a runtime like this could change how AI systems reason and remember.
+This is the initialization log, the first entry in what will become a longer story. Future posts will dive into what happens inside that governance layer, how admission decisions work, and how a substrate like this could change how AI systems reason and remember.
 
 The question isn't whether AI systems will remember. They already do. The question is whether they'll remember responsibly, with context, with consent, with the ability to explain themselves. 

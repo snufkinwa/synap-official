@@ -14,13 +14,13 @@ interface Props {
 }
 
 const {
-  title = 'Synaptik Core – Govern the AI Lifecycle from Inception to Autonomy',
-  description = 'A cognitive runtime that unifies governance, memory, and audit across the AI lifecycle—adding policy enforcement, verifiable lineage, and cryptographic trust to your existing stack.',
+  title = 'Synaptik Core – The Cognitive Substrate for Verifiable AI',
+  description = 'A cognitive substrate that unifies governance, memory, and audit across the AI lifecycle—adding policy enforcement, verifiable lineage, and cryptographic trust to your existing stack.',
   image = '/synaptik-bannersocial.png',
   type = 'website',
   publishedTime,
   author = 'Synaptik Core',
-  keywords = 'AI governance, AI audit, AI lifecycle, cognitive runtime, trustworthy AI, AI compliance, AI memory, ML governance, LLM governance, responsible AI',
+  keywords = 'AI governance, AI audit, AI lifecycle, cognitive substrate, trustworthy AI, AI compliance, AI memory, ML governance, LLM governance, responsible AI',
   noindex = false
 } = Astro.props;
 
@@ -146,10 +146,10 @@ if (publishedTime && type === 'article') {
 
 				const observeElements = () => {
 					fadeElements().forEach((el) => {
-						if (el.dataset.fadeObserved === 'true' || el.classList.contains('is-visible')) {
+						if (((el as HTMLElement).dataset?.fadeObserved === 'true') || el.classList.contains('is-visible')) {
 							return;
 						}
-						el.dataset.fadeObserved = 'true';
+						(el as HTMLElement).dataset.fadeObserved = 'true';
 						observer.observe(el);
 					});
 				};
