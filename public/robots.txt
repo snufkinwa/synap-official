@@ -2,5 +2,8 @@
 User-agent: *
 Allow: /
 
+# Disallow admin or private paths if any
+Disallow: /api/
+
 # Sitemaps
-Sitemap: https://synaptik-core.ai/sitemap-index.xml
+Sitemap: https://synaptik-core.ai/sitemap.xml

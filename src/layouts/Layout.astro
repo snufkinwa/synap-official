@@ -27,7 +27,7 @@ const {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 
-// Build structured data object
+// Build structured data for the page
 const structuredData: Record<string, any> = {
 	"@context": "https://schema.org",
 	"@type": type === 'article' ? 'Article' : 'WebSite',
@@ -53,6 +53,26 @@ if (publishedTime && type === 'article') {
 		}
 	};
 }
+
+// Organization structured data for SEO
+const organizationSchema = {
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Synaptik Core",
+	"url": "https://synaptik-core.ai",
+	"logo": "https://synaptik-core.ai/synaptik-logo.png",
+	"description": "A cognitive substrate that unifies governance, memory, and audit across the AI lifecycle—adding policy enforcement, verifiable lineage, and cryptographic trust to your existing stack.",
+	"foundingDate": "2024",
+	"sameAs": [
+		"https://twitter.com/synaptikcore",
+		"https://github.com/synaptik-core"
+	],
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"email": "janayharris@synaptik-core.dev",
+		"contactType": "Customer Service"
+	}
+};
 ---
 
 <!doctype html>
@@ -109,6 +129,7 @@ if (publishedTime && type === 'article') {
 		
 		<!-- JSON-LD Structured Data -->
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+		<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
 		
 		<ClientRouter />
 	</head>
